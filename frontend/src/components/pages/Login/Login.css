@@ -1,0 +1,194 @@
+/* Login.css */
+
+.loginbackground-example {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../redcar.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.loginform-value {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-left: -750px;
+}
+
+.loginform-value h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.logininputbox {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.logininputbox input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  background: transparent;
+  outline: none;
+  color: #ffffff;
+}
+
+.logininputbox label {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  color: #ffffff;
+  font-size: 14px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.logininputbox input:focus ~ label,
+.logininputbox input:not(:placeholder-shown) ~ label {
+  top: -30px;
+  left: 0;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.loginforget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loginforget label {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.loginforget input {
+  margin-right: 5px;
+}
+
+.loginloginbutton {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: -90px;
+}
+
+.loginloginbutton:hover {
+  background: #eaeaea;
+}
+
+.redirect-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.redirect-link a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.loginregister {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loginregister p {
+  color: #ffffff;
+}
+
+.loginregister a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.loginbackground-example {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../redcar.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}  
+#loginloginRememberme
+{
+  margin-top: -15px;
+}
+.loginwelcome11{
+  color: #ffffff;
+  font-size: 75px;
+  margin-left: 440px;
+  margin-top: -550px;
+}
+.loginup2ndhome2
+{
+  color: red;
+  font-size: 75px;
+  margin-left: 1200px;
+  margin-top: -170px;
+}
+.login2ndhome3
+{
+  color: rgb(255, 255, 255);
+  font-size: 75px;
+  margin-left: 350px;
+  margin-top: -80px;
+}
+.logingohomebutton
+{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  position: fixed;
+}
+
+.loginbutton
+{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.loginsecond
+{
+ margin-top: -31.8px;
+}
+.loginfirst
+{
+  margin-top: 5px;
+  width: 400px;
+}
+.loginregister
+{
+  margin-top: 50px;
+}

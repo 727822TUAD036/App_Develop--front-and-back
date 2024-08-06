@@ -1,0 +1,132 @@
+/* Container for the periodic maintenance section */
+.periodic-container {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hero section styling */
+  .periodic-hero {
+    margin-bottom: 40px;
+    margin-top: -80px;
+  }
+  
+  .periodic-title {
+  color: black;
+  font-size: 50px;
+  }
+  
+  .periodic-subtitle {
+    font-size: 1.5rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+  }
+  
+  /* Content section styling */
+  .periodic-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    text-align: left;
+  }
+  
+  .periodic-info {
+    flex: 1;
+    max-width: 600px;
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  .periodic-info h2 {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 10px;
+  }
+  
+  .periodic-info p, .periodic-info ul {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 20px;
+  }
+  
+  .periodic-info ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .periodic-image {
+    flex: 1;
+    max-width: 600px;
+    animation: zoomIn 1s ease-in-out;
+  }
+  
+  .periodic-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .periodic-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .periodic-info, .periodic-image {
+      max-width: 100%;
+    }
+  
+    .periodic-title {
+      font-size: 2.5rem;
+    }
+  
+    .periodic-subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .periodic-info h2 {
+      font-size: 1.5rem;
+    }
+  
+    .periodic-info p, .periodic-info ul {
+      font-size: 1rem;
+    }
+  }
+  

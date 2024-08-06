@@ -1,0 +1,141 @@
+.service-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.service-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.service-item {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  flex: 1 1 calc(33.333% - 40px);
+  max-width: calc(33.333% - 40px);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  background-color: #e0e0e0;
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: bounceIn 1s ease-in-out;
+}
+
+.service-item-title {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.service-item-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+.service-item-full-description {
+  margin-top: 15px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.service-item-full-description p {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.service-item-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.service-item-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .service-item {
+    flex: 1 1 calc(50% - 40px);
+    max-width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 600px) {
+  .service-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .service-title {
+    font-size: 2rem;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

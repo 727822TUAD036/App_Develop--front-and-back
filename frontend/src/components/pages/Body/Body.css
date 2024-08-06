@@ -1,0 +1,138 @@
+/* Container for the body shop section */
+.body-container {
+    padding: 60px 30px;
+    background-color: #f5f5f5;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  /* Hero section for the body shop */
+  .body-hero {
+    margin-bottom: 40px;
+  }
+  
+  .body-title {
+    margin-top: -42px;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #000000; /* Body Shop specific color */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInDown 1.5s ease-in-out;
+  }
+  
+  .body-subtitle {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 40px;
+    animation: fadeInUp 1.5s ease-in-out;
+  }
+  
+  /* Content section for the body shop */
+  .body-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .body-info {
+    max-width: 600px;
+    text-align: left;
+    animation: fadeInLeft 1.5s ease-in-out;
+  }
+  
+  .body-info h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #000000;
+  }
+  
+  .body-info p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+  
+  .body-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+  
+  .body-info li {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .body-image {
+    max-width: 600px;
+    margin: 20px;
+    animation: fadeInRight 1.5s ease-in-out;
+  }
+  
+  .body-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  

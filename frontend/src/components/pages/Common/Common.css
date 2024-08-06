@@ -1,0 +1,147 @@
+/* Common Page Styles */
+.common-page {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .common-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .common-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    animation: slideIn 1s ease-out;
+  }
+  
+  .common-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .repair-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .repair-item {
+    background-color: #eaf2f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 calc(33.333% - 40px);
+    max-width: calc(33.333% - 40px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  .repair-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  .repair-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #007bff;
+    animation: bounceIn 1s ease-in-out;
+  }
+  
+  .repair-title {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .repair-description {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Keyframe Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .repair-item {
+      flex: 1 1 calc(50% - 40px);
+      max-width: calc(50% - 40px);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .repair-item {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  
+    .common-title {
+      font-size: 2rem;
+    }
+  
+    .common-description {
+      font-size: 1rem;
+    }
+  }
+  

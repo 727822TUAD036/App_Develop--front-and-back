@@ -1,0 +1,155 @@
+/* Signup.css */
+
+.signupbackground-example {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../redcar.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+  
+  .signupform-value {
+    margin-left: -750px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .signupform-value h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  .signupinputbox {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .signupinputbox input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    background: transparent;
+    outline: none;
+    color: #ffffff;
+  }
+  
+  .signupinputbox label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    color: #ffffff;
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.3s;
+  }
+  
+  .signupinputbox input:focus ~ label,
+  .signupinputbox input:not(:placeholder-shown) ~ label {
+    top: -30px;
+    left: 0;
+    color: #ffffff;
+    font-size: 12px;
+  }
+  
+  .signupforget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .signupforget label {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+  }
+  
+  .signupforget input {
+    margin-right: 5px;
+  }
+  
+  .signuploginbutton11 {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 35px;
+    
+  }
+  
+  .signuploginbutton:hover {
+    background: #eaeaea;
+  }
+  
+  .signupredirect-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .signupredirect-link  {
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: -30px;
+  }
+  
+  .signupregister {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .signupregister p {
+    color: #ffffff;
+  }
+  
+  .signupregister a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .signup2ndhome1{
+    color: #ffffff;
+    font-size: 75px;
+    margin-left: 440px;
+    margin-top: -550px;
+  }
+  .signup2ndhome2
+  {
+    color: red;
+    font-size: 75px;
+    margin-left: 1200px;
+    margin-top: -170px;
+  }
+  .signup2ndhome3
+  {
+    color: rgb(255, 255, 255);
+    font-size: 75px;
+    margin-left: 350px;
+    margin-top: -80px;
+  }
+  .signuploginbutton
+  {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #ffffff;
+    color: #000000;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: -30px;
+  }
