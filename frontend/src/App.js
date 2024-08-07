@@ -17,6 +17,10 @@ import Common from './components/pages/Common/Common';
 import Oil from './components/pages/Oil/Oil';
 import Break from './components/pages/Break/Break';
 import Adminlog from './components/pages/Adminlog/Adminlog';
+import Value from './components/pages/Value/Value';
+import Dent from './components/pages/Dent/Dent';
+import Remove from './components/pages/Remove/Remove';
+import Paint from './components/pages/Paint/Paint';
 
 
 import './App.css';
@@ -55,6 +59,10 @@ function App() {
           <Route path="/oil" element={<Oil />} />
           <Route path="/break" element={<Break />} />
           <Route path="/adminlog" element={<Adminlog />} />
+          <Route path="/value" element={<Value />} />
+          <Route path="/dent" element={<Dent />} />
+          <Route path="/remove" element={<Remove />} />
+          <Route path="/paint" element={<Paint />} />
         </Routes>
       </div>
     </Router>

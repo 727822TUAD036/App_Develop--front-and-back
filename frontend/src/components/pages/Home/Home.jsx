@@ -73,9 +73,9 @@ const Home = () => {
             <div className="nav-link services-dropdown">
               Select
               <ul className="dropdown-menu">
-                <li><a href="#service1">Periodic Maintenance Service</a></li>
-                <li><a href="#service2">Scanning & Diagnostics</a></li>
-                <li><a href="#service3">Value Added Service</a></li>
+                <Link to = "/periodic"><li><a href="#service1">Periodic Maintenance Service</a></li></Link>
+                <Link to = "/diagnostics"><li><a href="#service2">Scanning & Diagnostics</a></li></Link>
+                <Link to = "/Value"><li><a href="#service3">Value Added Service</a></li></Link>
                 <Link to="/booking"><li><a href="#service4">Book An Appointment</a></li></Link>
                 <li><a href="#service5">Body Service</a></li>
               </ul>
@@ -111,10 +111,10 @@ const Home = () => {
       </div>
       <br></br>
       <div className="homepowericon">
-      <FontAwesomeIcon icon={faPlugCircleBolt} style={{ color: "#ff0000" }} />
+      <Link to = "/Diagnostics"><FontAwesomeIcon icon={faPlugCircleBolt} style={{ color: "#ff0000" }} /></Link>
       </div>
       <div className="wrinch">
-      <FontAwesomeIcon icon={faWrench} style={{ color: "#ff0000" }} />
+      <Link to = "/Dent"><FontAwesomeIcon icon={faWrench} style={{ color: "#ff0000" }} /></Link>
       </div>
       <div className="oilcan">
       <FontAwesomeIcon icon={faOilCan} style={{ color: "#ff0000" }} />
@@ -126,7 +126,7 @@ const Home = () => {
       <FontAwesomeIcon icon={faGears} style={{ color: "#ff0000" }} />
       </div>
       <div className="home1txt1">
-        <p><b>Diagnostics</b></p>
+       <p><b>Diagnostics</b></p>
       </div>
       <div className="home1txt2">
         <p><b>Dent & Paint</b></p>

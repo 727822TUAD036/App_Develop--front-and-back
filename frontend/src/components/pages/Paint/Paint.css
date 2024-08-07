@@ -1,0 +1,124 @@
+.paint-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f0f0f0;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .paint-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .paint-header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #333;
+    font-weight: 700;
+  }
+  
+  .paint-header p {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  .paint-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .car-display {
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    position: relative;
+    background: #e0e0e0; /* Light gray background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(176, 173, 173, 0.2);
+  }
+  
+  .color-picker {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .color-picker label {
+    font-size: 1.2em;
+    color: #333;
+    margin-right: 10px;
+  }
+  
+  .color-picker input[type="color"] {
+    border: none;
+    padding: 0;
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .predefined-colors {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .predefined-colors p {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .color-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .color-swatch {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(209, 13, 13, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .color-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(192, 9, 9, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    .paint-container {
+      width: 95%;
+      padding: 10px;
+    }
+  
+    .paint-header h1 {
+      font-size: 2em;
+    }
+  
+    .paint-header p {
+      font-size: 1em;
+    }
+  
+    .color-picker {
+      margin-top: 15px;
+    }
+  
+    .color-picker input[type="color"] {
+      width: 50px;
+      height: 30px;
+    }
+  
+    .color-swatch {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
