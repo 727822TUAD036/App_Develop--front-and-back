@@ -107,7 +107,7 @@ const Home = () => {
         </div>
       </div>
       <div className="homecartier">
-      <img src={tier} alt="Hub" style={{width:'1750px',height:'2280px'}} /> 
+      <img src={tier} alt="Hub" style={{width:'1490px',height:'1780px'}} /> 
       </div>
       <br></br>
       <div className="homepowericon">

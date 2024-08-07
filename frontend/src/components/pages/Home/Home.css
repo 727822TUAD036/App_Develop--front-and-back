@@ -173,7 +173,7 @@ a {
   background-repeat: no-repeat;
   margin-top: -490px;
   width: 100vh;
-  margin-top: -465px;
+  margin-top: -415px;
   margin-left: 400px;
 }
 .homeblackimage
@@ -183,7 +183,7 @@ a {
   align-items: center;
   background-image: url('../blackimg.png');
   height: 460px;
-  margin-top: 255px;
+  margin-top: 173px;
 }
 .whydoyouchooseus
 {
@@ -477,5 +477,5 @@ a {
   }
 .icoooon
 {
-  margin-left: 80px;
+  /* margin-left: 80px; */
 }
