@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Booking.css';
 import community from '../community.png'; // Adjust the path as necessary
 
-const Booking = () => {
+const Booking = ({ addAppointment }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,10 +27,37 @@ const Booking = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your submission logic here
-    alert('Appointment booked successfully!');
+
+    const newAppointment = {
+      name: formData.name,
+      email: formData.email,
+      date: formData.date,
+      time: formData.time,
+      service: formData.service,
+    };
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/bookings', newAppointment);
+      if (response.status === 201) {
+        addAppointment(response.data); // Add appointment to the state in parent component
+        alert('Failed to book the appointment. Please try again.');
+
+        setFormData({
+          name: '',
+          email: '',
+          date: '',
+          time: '',
+          service: '',
+        });
+      } else {
+        alert('Appointment booked successfully!');
+      }
+    } catch (error) {
+      console.error('There was an error booking the appointment:', error);
+      alert('An error occurred while booking the appointment. Please try again.');
+    }
   };
 
   return (

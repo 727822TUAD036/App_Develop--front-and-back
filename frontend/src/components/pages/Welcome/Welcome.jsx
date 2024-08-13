@@ -12,9 +12,7 @@ class Welcome extends React.Component {
             
                 <div className="welbookbutton">
                     <br></br>
-                        <div class="welbookdata-container">
-                            <Link to="/Signup"><span class="welbtn">BOOK AN APPOINTMENT</span></Link>
-                        </div>
+                        
 
                  </div>
                  <div className="welpro">
@@ -33,6 +31,9 @@ class Welcome extends React.Component {
                     <div class="welcontactdata-container">
                         <Link to="/adminlog"><span class="welbtn">ADMIN</span></Link>
                     </div>
+                    <div class="welbookdata-container">
+                            <Link to="/Signup"><span class="welbtn">BOOK AN APPOINTMENT</span></Link>
+                        </div>
                  </div>
             </div>
         </section>

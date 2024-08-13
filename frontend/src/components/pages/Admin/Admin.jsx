@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Bar, Pie } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+import { FaCalendarAlt, FaWrench, FaUsers, FaChartPie } from 'react-icons/fa';
 import './Admin.css';
-import { color } from 'chart.js/helpers';
+import { Link } from 'react-router-dom';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
 
 const Admin = () => {
   const [appointments, setAppointments] = useState([
     { id: 1, name: 'John Doe', date: '2024-08-15', time: '10:00 AM', service: 'Oil Change' },
     { id: 2, name: 'Jane Smith', date: '2024-08-16', time: '11:00 AM', service: 'Brake Inspection' },
+    { id: 3, name: 'Tom White', date: '2024-08-17', time: '02:00 PM', service: 'Tire Rotation' },
+    { id: 4, name: 'Lucy Black', date: '2024-08-18', time: '12:00 PM', service: 'Oil Change' },
   ]);
 
   const [services, setServices] = useState([
@@ -13,125 +20,126 @@ const Admin = () => {
   ]);
 
   const [users, setUsers] = useState([
-    { id: 1, name: 'Alice Johnson', email: 'alice@example.com' },
-    { id: 2, name: 'Bob Brown', email: 'bob@example.com' },
+    { id: 1, name: 'Alice Johnson', email: 'alice@example.com', role: 'Admin' },
+    { id: 2, name: 'Bob Brown', email: 'bob@example.com', role: 'Customer' },
+    { id: 3, name: 'Charlie Davis', email: 'charlie@example.com', role: 'Staff' },
+    { id: 4, name: 'Diana Adams', email: 'diana@example.com', role: 'Customer' },
   ]);
 
-  const [selectedAppointment, setSelectedAppointment] = useState(null);
+  const [appointmentCount, setAppointmentCount] = useState(0);
+  const [serviceCount, setServiceCount] = useState(0);
+  const [userCount, setUserCount] = useState(0);
 
-  const handleDeleteAppointment = (id) => {
-    setAppointments(appointments.filter(app => app.id !== id));
+  useEffect(() => {
+    setTimeout(() => setAppointmentCount(appointments.length), 500);
+    setTimeout(() => setServiceCount(services.length), 1000);
+    setTimeout(() => setUserCount(users.length), 1500);
+  }, [appointments.length, services.length, users.length]);
+
+  const appointmentsPerService = services.map(service =>
+    appointments.filter(app => app.service === service).length
+  );
+
+  const userRoles = users.reduce((acc, user) => {
+    acc[user.role] = (acc[user.role] || 0) + 1;
+    return acc;
+  }, {});
+
+  const barChartData = {
+    labels: services,
+    datasets: [
+      {
+        label: 'Appointments',
+        data: appointmentsPerService,
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+      },
+    ],
   };
 
-  const handleAddService = () => {
-    const newService = prompt('Enter new service');
-    if (newService && !services.includes(newService)) {
-      setServices([...services, newService]);
-    }
+  const pieChartData = {
+    labels: Object.keys(userRoles),
+    datasets: [
+      {
+        label: 'User Distribution',
+        data: Object.values(userRoles),
+        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
+        hoverBackgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
+      },
+    ],
   };
 
-  const handleRemoveService = (serviceToRemove) => {
-    setServices(services.filter(service => service !== serviceToRemove));
-  };
-
-  const handleUpdateAppointment = (id) => {
-    const updatedName = prompt('Update name');
-    const updatedDate = prompt('Update date (YYYY-MM-DD)');
-    const updatedTime = prompt('Update time (HH:MM AM/PM)');
-    const updatedService = prompt('Update service');
-
-    setAppointments(appointments.map(app =>
-      app.id === id
-        ? { ...app, name: updatedName || app.name, date: updatedDate || app.date, time: updatedTime || app.time, service: updatedService || app.service }
-        : app
-    ));
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            return `${context.label}: ${context.raw}`;
+          },
+        },
+      },
+    },
   };
 
   return (
-    <div className="admin-page-2737">
-      <div className="admin-dashboard-container-2737">
-        <h1>Admin Dashboard</h1>
-        <div className="dashboard-stats-2737">
-          <div className="stat-card-2737">
-            <h3>Appointments</h3>
-            <p>{appointments.length}</p>
-          </div>
-          <div className="stat-card-2737">
-            <h3>Services</h3>
-            <p>{services.length}</p>
-          </div>
-          <div className="stat-card-2737">
-            <h3>Users</h3>
-            <p>{users.length}</p>
-          </div>
-        </div>
-      </div>
+    <div className="admin-container">
+      <aside className="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+          <Link to ="/appointment"><li><a href="#appointments"><FaCalendarAlt className="sidebar-icon" /> Appointments</a></li></Link>
+          <li><a href="#services"><FaWrench className="sidebar-icon" /> Services</a></li>
+          <Link to = "/members"><li><a href="#users"><FaUsers className="sidebar-icon" /> Users</a></li></Link>
+          <li><a href="#charts"><FaChartPie className="sidebar-icon" /> Analytics</a></li>
+        </ul>
+      </aside>
 
-      <div className="admin-section-container-2737">
-        <div className="admin-section-2737">
-          <h2>Manage Appointments</h2>
-          <table className="appointments-table-2737">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Service</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {appointments.map(app => (
-                <tr key={app.id}>
-                  <td>{app.name}</td>
-                  <td>{app.date}</td>
-                  <td>{app.time}</td>
-                  <td>{app.service}</td>
-                  <td>
-                    <button onClick={() => setSelectedAppointment(app)}>View</button>
-                    <button onClick={() => handleUpdateAppointment(app.id)}>Update</button>
-                    <button onClick={() => handleDeleteAppointment(app.id)}>Delete</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          {selectedAppointment && (
-            <div className="appointment-details-2737">
-              <h3>Appointment Details</h3>
-              <p>Name: {selectedAppointment.name}</p>
-              <p>Date: {selectedAppointment.date}</p>
-              <p>Time: {selectedAppointment.time}</p>
-              <p>Service: {selectedAppointment.service}</p>
-              <button onClick={() => setSelectedAppointment(null)}>Close</button>
+      <div className="content">
+        <div className="dashboard-overview">
+          <div className="overview-card">
+            <div className="progress-circle" data-value={appointmentCount}>
+              <div className="inner-circle">
+                <span>{appointmentCount}</span>
+              </div>
             </div>
-          )}
+            <h3>Total Appointments</h3>
+          </div>
+          <div className="overview-card">
+            <div className="progress-circle" data-value={serviceCount}>
+              <div className="inner-circle">
+                <span>{serviceCount}</span>
+              </div>
+            </div>
+            <h3>Total Services</h3>
+          </div>
+          <div className="overview-card">
+            <div className="progress-circle" data-value={userCount}>
+              <div className="inner-circle">
+                <span>{userCount}</span>
+              </div>
+            </div>
+            <h3>Total Users</h3>
+          </div>
         </div>
 
-        <div className="admin-section-2737">
-          <h2>Manage Services</h2>
-          <ul className="services-list-2737">
-            {services.map((service, index) => (
-              <li key={index}>
-                {service}
-                <button onClick={() => handleRemoveService(service)}>Remove</button>
-              </li>
-            ))}
-          </ul>
-          <button onClick={handleAddService}>Add Service</button>
-        </div>
-
-        <div className="admin-section-2737">
-          <h2>User Management</h2>
-          <ul className="users-list-2737">
-            {users.map(user => (
-              <li key={user.id}>
-                {user.name} - {user.email}
-                <button onClick={() => alert(`Update user ${user.id}`)}>Update</button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <section id="charts" className="section charts-section">
+          <h2>Analytics</h2>
+          <div className="chart-container">
+            <div className="chart-card">
+              <h3>Appointments per Service</h3>
+              <Bar data={barChartData} options={chartOptions} />
+            </div>
+            <div className="chart-card">
+              <h3>User Distribution</h3>
+              <Pie data={pieChartData} options={chartOptions} />
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

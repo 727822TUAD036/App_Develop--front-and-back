@@ -4,26 +4,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-public class Contact {
-
+@Table(name = "management")
+public class Management {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
-    private String message;
 
-    public Contact() {}
-
-    public Contact(String name, String email, String message) {
-        this.name = name;
-        this.email = email;
-        this.message = message;
-    }
-
-    // Getters and setters
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -46,13 +38,5 @@ public class Contact {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }

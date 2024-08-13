@@ -21,6 +21,8 @@ import Value from './components/pages/Value/Value';
 import Dent from './components/pages/Dent/Dent';
 import Remove from './components/pages/Remove/Remove';
 import Paint from './components/pages/Paint/Paint';
+import Appointment from './components/pages/Appointment/Appointment';
+import Members from './components/pages/Members/Members';
 
 
 import './App.css';
@@ -42,9 +44,9 @@ function App() {
         </header>
         <Routes>
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/" element={<Signup onRegister={handleRegister} />} />
-          <Route path="/welcome" element={<Welcome />} />
-          {/* <Route path="/" element={<Welcome />} /> */}
+          <Route path="/" element={<Welcome onRegister={handleRegister} />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Welcome />} />
           <Route path="/home" element={<Home />} />
           <Route path="/faqs" element={<Faqs />} />
           <Route path="/service" element={<Service />} />
@@ -63,6 +65,8 @@ function App() {
           <Route path="/dent" element={<Dent />} />
           <Route path="/remove" element={<Remove />} />
           <Route path="/paint" element={<Paint />} />
+          <Route path="/appointment" element={<Appointment />} />
+          <Route path="/members" element={<Members />} />
         </Routes>
       </div>
     </Router>

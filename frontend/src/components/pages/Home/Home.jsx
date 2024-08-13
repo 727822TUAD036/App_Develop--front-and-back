@@ -2,16 +2,16 @@ import React, { useEffect } from 'react';
 import './Home.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowTurnDown } from '@fortawesome/free-solid-svg-icons'; // Import arrow turn down icon
+import { faArrowTurnDown } from '@fortawesome/free-solid-svg-icons'; 
 import back from '../home2.png';
-import { faPlugCircleBolt } from '@fortawesome/free-solid-svg-icons'; // Import plug circle bolt icon
-import { faWrench } from '@fortawesome/free-solid-svg-icons'; // Import wrench icon
-import { faOilCan } from '@fortawesome/free-solid-svg-icons'; // Import oil can icon
-import { faCarBattery } from '@fortawesome/free-solid-svg-icons'; // Import car battery icon
-import { faGears } from '@fortawesome/free-solid-svg-icons'; // Import gears icon from solid icons
-import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons'; // Import people group icon from solid icons
-import { faClipboardList } from '@fortawesome/free-solid-svg-icons'; // Import clipboard list icon from solid icons
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'; // Import magnifying glass icon from solid icons
+import { faPlugCircleBolt } from '@fortawesome/free-solid-svg-icons'; 
+import { faWrench } from '@fortawesome/free-solid-svg-icons'; 
+import { faOilCan } from '@fortawesome/free-solid-svg-icons'; 
+import { faCarBattery } from '@fortawesome/free-solid-svg-icons'; 
+import { faGears } from '@fortawesome/free-solid-svg-icons'; 
+import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons'; 
+import { faClipboardList } from '@fortawesome/free-solid-svg-icons'; 
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'; 
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -107,7 +107,7 @@ const Home = () => {
         </div>
       </div>
       <div className="homecartier">
-      <img src={tier} alt="Hub" style={{width:'1490px',height:'1780px'}} /> 
+      <img src={tier} alt="Hub" style={{width:'1610px',height:'1780px'}} /> 
       </div>
       <br></br>
       <div className="homepowericon">

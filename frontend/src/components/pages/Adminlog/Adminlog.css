@@ -1,72 +1,96 @@
-/* Container for the entire login page */
+/* Adminlog.css */
+
+.admin-log-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('C:\Users\sprab\Desktop\Car hub 2\frontend\src\components\pages\tail.png') no-repeat center center/cover; /* Background image */
+}
+
 .admin-log-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(to right, #ffffff, #33AEFF); /* Gradient background for a modern look */
-    padding: 20px;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.admin-log-header {
+  margin-bottom: 1.5rem;
+}
+
+.admin-log-header h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-log-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-log-form label {
+  text-align: left;
+  color: #555;
+  font-weight: bold;
+}
+
+.admin-log-form input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.admin-log-form input:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.admin-log-form button {
+  background-color: #212224;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-log-form button:hover {
+  background-color: #000000;
+}
+
+.error-message {
+  color: red;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .admin-log-container {
+    padding: 1.5rem;
   }
-  
-  /* Styling for the form container */
-  .admin-log-form {
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 100%;
-    max-width: 400px; /* Set a max-width for responsiveness */
-    text-align: center;
+
+  .admin-log-header h2 {
+    font-size: 1.5rem;
   }
-  
-  /* Title styling */
-  .admin-log-form h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-  }
-  
-  /* Label styling */
-  .admin-log-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Input field styling */
-  .admin-log-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  
-  /* Button styling */
+
+  .admin-log-form input, 
   .admin-log-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    font-size: 0.9rem;
   }
-  
-  .admin-log-form button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Error message styling */
-  .error-message {
-    color: red;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  
+}
+.login-button
+{
+  width: 404px;
+}

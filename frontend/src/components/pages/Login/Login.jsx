@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 
-function Login({ onLogin }) {
+function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loginSuccess, setLoginSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/users/login', {
+      const response = await fetch('http://localhost:8080/api/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,14 +23,21 @@ function Login({ onLogin }) {
 
       if (response.ok) {
         const data = await response.json();
-        onLogin(data.username, data.password);
-        navigate('/home');
+        localStorage.setItem('token', data.token); 
+        setLoginSuccess(true);
+        setError('');
+        setTimeout(() => {
+          navigate('/Home'); 
+        }, 2000);
       } else {
         const errorData = await response.json();
         setError(errorData.message || 'Invalid email or password');
+        setLoginSuccess(false);
       }
+      
     } catch (err) {
       setError('An error occurred. Please try again.');
+      setLoginSuccess(false);
     }
   };
 
@@ -70,6 +78,13 @@ function Login({ onLogin }) {
               <button className="loginbutton" type="submit">
                 Log in
               </button>
+              {loginSuccess && (
+                <Link to="/Home" className="redirect-link">
+                  <div className="homebutton">
+                    Go to Home
+                  </div>
+                </Link>
+              )}
               <div className="loginregister">
                 <p>Don't have an account? <Link to="/Signup">Register</Link></p>
               </div>

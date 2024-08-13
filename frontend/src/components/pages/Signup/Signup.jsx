@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css';
 
-function Signup({ onRegister }) {
+function Signup() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -45,9 +45,8 @@ function Signup({ onRegister }) {
       });
 
       if (response.ok) {
-        const savedUser = await response.json();
-        console.log('Sign-up successful:', savedUser);
         setSignupSuccess(true);
+        // Redirect to the Members page
         navigate('/Login');
       } else {
         console.error('Sign-up failed:', response.statusText);
@@ -131,7 +130,7 @@ function Signup({ onRegister }) {
               </button>
               {signupSuccess && (
                 <div className="signupredirect-link">
-                  <Link to="/Login"><button className="signuploginbutton">Sign Up</button></Link>
+                  <Link to="/Login"><button className="signuploginbutton">View Members</button></Link>
                 </div>
               )}
               <div className="signupregister">
@@ -155,9 +154,5 @@ function Signup({ onRegister }) {
     </section>
   );
 }
-
-Signup.defaultProps = {
-  onRegister: () => {},
-};
 
 export default Signup;

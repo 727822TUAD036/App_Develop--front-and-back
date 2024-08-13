@@ -178,14 +178,12 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
+  margin-top: 40px;
 }
-.loginsecond
-{
- margin-top: -31.8px;
-}
+
 .loginfirst
 {
-  margin-top: 5px;
+  margin-top: 25px;
   width: 400px;
 }
 .loginregister

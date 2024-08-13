@@ -1,15 +1,68 @@
-import React from 'react';
 import './About.css';
 import about from '../about.png';
-
+import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 const About = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        { id: '#contactSection', link: '#contactLink' },
+        { id: '#priceSection', link: '#priceLink' },
+        { id: '#servicesSection', link: '#servicesLink' },
+        { id: '#teamSection', link: '#teamLink' },
+        { id: '#portfolioSection', link: '#portfolioLink' },
+        { id: '#aboutSection', link: '#aboutLink' },
+        { id: '#topSection', link: '#topLink' },
+      ];
+
+      for (let section of sections) {
+        const target = document.querySelector(section.id);
+        if (target && window.scrollY >= target.offsetTop - window.innerHeight / 2) {
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+          document.querySelector(section.link).classList.add('active');
+          break;
+        }
+      }
+
+      if (window.scrollY >= 110) {
+        document.querySelector('.nav-bar').classList.add('scrolled');
+      } else {
+        document.querySelector('.nav-bar').classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="about-container">
       <section className="about-hero">
         <h1 className="about-title">About Us</h1>
         <p className="about-subtitle">Your Trusted Car Service Experts</p>
       </section>
+      <div className="nav-bar">
+        <div className="nav-logo">AUTOGARAGE</div>
+        <div className="nav-links-container">
+          <Link to="/home" className="nav-link active" id="topLink">Home</Link>
+          <Link to="/Contact" className="nav-link" id="aboutLink">Contact</Link>
+          <Link to="/Service" className="nav-link" id="teamLink">Service</Link>
+          <div className="nav-link services-dropdown">
+            Select
+            <ul className="dropdown-menu">
+              <Link to="/periodic"><li>Periodic Maintenance Service</li></Link>
+              <Link to="/diagnostics"><li>Scanning & Diagnostics</li></Link>
+              <Link to="/Value"><li>Value Added Service</li></Link>
+              <Link to="/booking"><li>Book An Appointment</li></Link>
+              <li>Body Service</li>
+            </ul>
+          </div>
+          <Link to="/faqs" className="nav-link" id="priceLink">FAQs</Link>
+          <Link to="/About" className="nav-link" id="portfolioLink">About</Link>
+          <Link to="/welcome" className="nav-link">Logout</Link>
+        </div>
+      </div>
       <section className="about-content">
         <div className="about-text">
           <h2>Our Mission</h2>
@@ -30,7 +83,7 @@ const About = () => {
           </p>
         </div>
         <div className="about-image">
-        <img src={about} alt="Hub" style={{width:'550px',height:'350px'}} /> 
+          <img src={about} alt="Hub" />
         </div>
       </section>
     </div>

@@ -1,75 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import React, { useState } from 'react';
 import './Paint.css';
 
 const Paint = () => {
   const [carColor, setCarColor] = useState('#ffffff'); // Default color: white
-  const [scene, setScene] = useState(null);
-  const [car, setCar] = useState(null);
-
-  useEffect(() => {
-    // Initialize Three.js scene
-    const scene = new THREE.Scene();
-    setScene(scene);
-
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('three-js-container').appendChild(renderer.domElement);
-
-    const loader = new GLTFLoader();
-    loader.load('/path/to/your/bmw-model.glb', (gltf) => {
-      const model = gltf.scene;
-      model.traverse((child) => {
-        if (child.isMesh) {
-          child.material.color.set(carColor);
-        }
-      });
-      scene.add(model);
-      setCar(model);
-      camera.position.z = 5;
-    });
-
-    const animate = () => {
-      requestAnimationFrame(animate);
-      if (car) {
-        car.rotation.x += 0.01;
-        car.rotation.y += 0.01;
-      }
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    // Cleanup on component unmount
-    return () => {
-      if (car) {
-        scene.remove(car);
-        car.traverse((child) => {
-          if (child.isMesh) {
-            child.material.dispose();
-          }
-        });
-      }
-      if (renderer) {
-        renderer.dispose();
-      }
-      const container = document.getElementById('three-js-container');
-      if (container) {
-        container.removeChild(renderer.domElement);
-      }
-    };
-  }, [carColor]);
-
-  useEffect(() => {
-    if (car) {
-      car.traverse((child) => {
-        if (child.isMesh) {
-          child.material.color.set(carColor);
-        }
-      });
-    }
-  }, [carColor, car]);
 
   const handleColorChange = (event) => {
     setCarColor(event.target.value);
@@ -92,33 +25,61 @@ const Paint = () => {
   return (
     <div className="paint-container">
       <header className="paint-header">
-        <h1>Paint Your BMW</h1>
-        <p>Select a color to see how your car would look!</p>
+        <h1>Paint Your Car</h1>
       </header>
       <section className="paint-body">
-        <div id="three-js-container" className="car-display"></div>
-        <div className="color-picker">
-          <label htmlFor="color">Choose a color:</label>
-          <input
-            type="color"
-            id="color"
-            name="color"
-            value={carColor}
-            onChange={handleColorChange}
-          />
-        </div>
-        <div className="predefined-colors">
-          <p>Or choose from predefined colors:</p>
-          <div className="color-options">
-            {colorOptions.map((option) => (
-              <div
-                key={option.name}
-                className="color-swatch"
-                style={{ backgroundColor: option.color }}
-                onClick={() => handleColorSelect(option.color)}
-                title={option.name}
+        <div className="car-display">
+          <svg
+            width="80%"
+            height="60vh"
+            viewBox="0 0 800 400"
+            xmlns="http://www.w3.org/2000/svg"
+            className="car-svg"
+          >
+            {/* Realistic Car Design SVG */}
+            <g id="car-body">
+              <path
+                d="M150 250 L650 250 Q675 250 675 225 L675 200 Q675 150 650 150 L150 150 Q125 150 125 200 L125 225 Q125 250 150 250 Z"
+                fill={carColor}
+                stroke="#333"
+                strokeWidth="3"
               />
-            ))}
+              <circle cx="250" cy="275" r="35" fill="#333" />
+              <circle cx="250" cy="275" r="15" fill="#666" />
+              <circle cx="550" cy="275" r="35" fill="#333" />
+              <circle cx="550" cy="275" r="15" fill="#666" />
+            </g>
+            <g id="car-windows">
+              <rect x="175" y="175" width="100" height="50" fill="#b3b3b3" />
+              <rect x="525" y="175" width="100" height="50" fill="#b3b3b3" />
+              <rect x="300" y="175" width="200" height="50" fill="#b3b3b3" />
+            </g>
+          </svg>
+        </div>
+        <div className="controls">
+          <div className="color-picker">
+            <label htmlFor="color">Choose a color:</label>
+            <input
+              type="color"
+              id="color"
+              name="color"
+              value={carColor}
+              onChange={handleColorChange}
+            />
+          </div>
+          <div className="predefined-colors">
+            <p>Or choose from predefined colors:</p>
+            <div className="color-options">
+              {colorOptions.map((option) => (
+                <div
+                  key={option.name}
+                  className="color-swatch"
+                  style={{ backgroundColor: option.color }}
+                  onClick={() => handleColorSelect(option.color)}
+                  title={option.name}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
